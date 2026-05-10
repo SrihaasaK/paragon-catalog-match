@@ -84,13 +84,16 @@ def retrieve_from_customer_history(
     # Deduplicate by SKU, keep most recent
     deduped = filtered.drop_duplicates(subset="sku", keep="first")
 
-    # Confidence decays with recency rank — most recent = highest
-    rank_confidences = [0.88, 0.82, 0.76]
+    # Confidence decays with recency rank: base 0.90, decay 0.05 per rank
+    # Most recent = 0.90, then 0.85, 0.80 — recency is a useful signal
+    # but all are valid history matches
+    HISTORY_BASE_CONF = 0.90
+    HISTORY_RANK_DECAY = 0.05
     product_label = product_type or "item"
 
     matches = []
     for i, (_, row) in enumerate(deduped.head(3).iterrows()):
-        conf = rank_confidences[i] if i < len(rank_confidences) else 0.70
+        conf = max(HISTORY_BASE_CONF - i * HISTORY_RANK_DECAY, 0.70)
         if i == 0:
             reasoning = (
                 f"Most recent {product_label} order from {customer_id} "
