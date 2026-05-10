@@ -84,16 +84,23 @@ def retrieve_from_customer_history(
     # Deduplicate by SKU, keep most recent
     deduped = filtered.drop_duplicates(subset="sku", keep="first")
 
-    # Confidence decays with recency rank: base 0.90, decay 0.05 per rank
-    # Most recent = 0.90, then 0.85, 0.80 — recency is a useful signal
-    # but all are valid history matches
-    HISTORY_BASE_CONF = 0.90
-    HISTORY_RANK_DECAY = 0.05
     product_label = product_type or "item"
+
+    # Confidence based on recency: most recent order date anchors at 0.92,
+    # older orders decay proportionally to how far back they are (in days)
+    # relative to the full history span. If all orders are the same date,
+    # all get 0.92.
+    dates = pd.to_datetime(deduped.head(3)["order_date"])
+    most_recent = dates.max()
+    history_span_days = max((most_recent - dates.min()).days, 1)
 
     matches = []
     for i, (_, row) in enumerate(deduped.head(3).iterrows()):
-        conf = max(HISTORY_BASE_CONF - i * HISTORY_RANK_DECAY, 0.70)
+        order_date = pd.to_datetime(row["order_date"])
+        days_ago = (most_recent - order_date).days
+        recency_factor = 1.0 - (days_ago / history_span_days) * 0.15
+        conf = round(0.92 * recency_factor, 2)
+
         if i == 0:
             reasoning = (
                 f"Most recent {product_label} order from {customer_id} "
