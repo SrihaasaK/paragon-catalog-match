@@ -1,0 +1,31 @@
+{
+  "customer_id": "CUST-005",
+  "customer_name": "Summit General Maintenance",
+  "industry_inference": "General facility maintenance and repair",
+  "fingerprint_string": "Mixed metric/imperial fasteners across materials, showing maintenance-driven purchasing with moderate quantities for diverse repair applications.",
+  "material_distribution": {
+    "STEEL ZINC": 0.25,
+    "BRASS YELLOW ZINC": 0.15,
+    "BRASS ZINC": 0.15,
+    "ALLOY BLACK OXIDE": 0.3,
+    "18-8 SS PLAIN": 0.15
+  },
+  "thread_system_distribution": {
+    "metric": 0.5,
+    "imperial": 0.5
+  },
+  "finish_distribution": {
+    "ZINC": 0.4,
+    "YELLOW ZINC": 0.15,
+    "BLACK OXIDE": 0.3,
+    "PLAIN": 0.15
+  },
+  "notable_patterns": [
+    "Orders balanced 50/50 between metric and imperial thread systems",
+    "Prefers corrosion-resistant finishes (zinc variants) and black oxide for durability",
+    "Mixed fastener types including cap screws, lag screws, nuts, and washers indicating diverse maintenance needs",
+    "Moderate quantities (50-500 pieces) suggesting project-based rather than production purchasing"
+  ],
+  "profile_confidence": 0.45,
+  "order_count": 6
+}

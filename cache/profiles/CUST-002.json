@@ -1,0 +1,24 @@
+{
+  "customer_id": "CUST-002",
+  "customer_name": "CleanRoom Pharma MFG",
+  "industry_inference": "Pharmaceutical cleanroom manufacturing",
+  "fingerprint_string": "Exclusively orders 18-8 stainless steel fasteners with plain finish, showing strong preference for corrosion resistance and cleanroom compliance.",
+  "material_distribution": {
+    "18-8 SS PLAIN": 1.0
+  },
+  "thread_system_distribution": {
+    "metric": 0.75,
+    "imperial": 0.25
+  },
+  "finish_distribution": {
+    "PLAIN": 1.0
+  },
+  "notable_patterns": [
+    "100% consistency in ordering 18-8 stainless steel with plain finish across all 17 orders",
+    "Strong preference for metric threading (M4, M6, M8, M16) over imperial sizes",
+    "Frequently reorders identical items (M16 washers, M8 lock washers, M8 flat washers)",
+    "Orders washers and fasteners in coordinated sizes, suggesting systematic assembly applications"
+  ],
+  "profile_confidence": 0.92,
+  "order_count": 17
+}

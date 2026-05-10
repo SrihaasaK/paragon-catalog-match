@@ -1,0 +1,32 @@
+{
+  "customer_id": "CUST-003",
+  "customer_name": "Marine Electrical Corp",
+  "industry_inference": "Marine electrical and electronics manufacturing",
+  "fingerprint_string": "Exclusively orders brass fasteners with corrosion-resistant finishes, showing strong preference for marine-grade hardware in medium quantities.",
+  "material_distribution": {
+    "BRASS ZINC": 0.35,
+    "BRASS MECH ZINC": 0.25,
+    "BRASS HDG": 0.18,
+    "BRASS PLAIN": 0.15,
+    "BRASS YELLOW ZINC": 0.07
+  },
+  "thread_system_distribution": {
+    "metric": 0.53,
+    "imperial": 0.47
+  },
+  "finish_distribution": {
+    "ZINC": 0.35,
+    "MECH ZINC": 0.25,
+    "HDG": 0.18,
+    "PLAIN": 0.15,
+    "YELLOW ZINC": 0.07
+  },
+  "notable_patterns": [
+    "Orders exclusively brass material - zero steel, stainless, or alloy orders across all 17 orders",
+    "Strong preference for corrosion-resistant finishes (zinc variants and HDG) comprising 85% of orders",
+    "Mixed metric/imperial usage suggests diverse application requirements or legacy equipment",
+    "Frequent washer orders (4 of 17 orders) indicate complete assembly procurement"
+  ],
+  "profile_confidence": 0.88,
+  "order_count": 17
+}

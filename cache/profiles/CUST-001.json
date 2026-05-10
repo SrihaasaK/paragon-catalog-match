@@ -1,0 +1,30 @@
+{
+  "customer_id": "CUST-001",
+  "customer_name": "Midwest Industrial Supply",
+  "industry_inference": "General industrial manufacturing and assembly",
+  "fingerprint_string": "Exclusively orders steel fasteners with zinc-based finishes, mixing metric and imperial threads in moderate to high volumes for diverse industrial applications.",
+  "material_distribution": {
+    "STEEL ZINC": 0.83,
+    "STEEL HDG": 0.06,
+    "STEEL YELLOW ZINC": 0.06,
+    "STEEL MECH ZINC": 0.05
+  },
+  "thread_system_distribution": {
+    "metric": 0.56,
+    "imperial": 0.44
+  },
+  "finish_distribution": {
+    "ZINC": 0.83,
+    "HDG": 0.06,
+    "YELLOW ZINC": 0.06,
+    "MECH ZINC": 0.05
+  },
+  "notable_patterns": [
+    "Shows 100% commitment to steel material across all 18 orders with no other materials ordered",
+    "Consistently orders zinc-based finishes (zinc, HDG, yellow zinc, mech zinc) with standard zinc being dominant",
+    "Demonstrates balanced usage of both metric (10 orders) and imperial (8 orders) thread systems",
+    "Orders complete fastener systems including screws, nuts, washers, and threaded rod suggesting assembly operations"
+  ],
+  "profile_confidence": 0.92,
+  "order_count": 18
+}

@@ -1,0 +1,580 @@
+[
+  {
+    "id": 1,
+    "query": "M8 flat washer",
+    "customer_id": null,
+    "category": "direct",
+    "top_result": "M8-1.25 FLAT WASHER ISO 7380 18-8 SS PLAIN",
+    "confidences": [
+      0.87,
+      0.86,
+      0.84
+    ],
+    "used_history": false,
+    "profile_applied": false,
+    "has_affinity": false,
+    "has_conflict": false,
+    "elapsed_s": 10.32
+  },
+  {
+    "id": 2,
+    "query": "5/16 hex nut",
+    "customer_id": null,
+    "category": "direct",
+    "top_result": "5/16-18 HEX NUT STEEL MECH ZINC",
+    "confidences": [
+      0.82,
+      0.78,
+      0.35
+    ],
+    "used_history": false,
+    "profile_applied": false,
+    "has_affinity": false,
+    "has_conflict": false,
+    "elapsed_s": 9.54
+  },
+  {
+    "id": 3,
+    "query": "1/2 inch hex nut",
+    "customer_id": null,
+    "category": "underspecified",
+    "top_result": "1/2-13 HEX NUT DIN 912 ALLOY HDG",
+    "confidences": [
+      0.58,
+      0.57,
+      0.56
+    ],
+    "used_history": false,
+    "profile_applied": false,
+    "has_affinity": false,
+    "has_conflict": false,
+    "elapsed_s": 11.16
+  },
+  {
+    "id": 4,
+    "query": "M12 hex cap screw",
+    "customer_id": null,
+    "category": "direct",
+    "top_result": "M12-1.75 X 80MM HEX CAP SCREW ISO 7380 ALLOY HDG",
+    "confidences": [
+      0.83,
+      0.81,
+      0.79
+    ],
+    "used_history": false,
+    "profile_applied": false,
+    "has_affinity": false,
+    "has_conflict": false,
+    "elapsed_s": 11.27
+  },
+  {
+    "id": 5,
+    "query": "3/8 lag screw",
+    "customer_id": null,
+    "category": "direct",
+    "top_result": "3/8-16x3\" LAG SCREW ASME B18.2.1 STEEL PLAIN",
+    "confidences": [
+      0.76,
+      0.74,
+      0.72
+    ],
+    "used_history": false,
+    "profile_applied": false,
+    "has_affinity": false,
+    "has_conflict": false,
+    "elapsed_s": 9.72
+  },
+  {
+    "id": 6,
+    "query": "M6 lock washer",
+    "customer_id": null,
+    "category": "direct",
+    "top_result": "M6-1.0 LOCK WASHER ALLOY PLAIN",
+    "confidences": [
+      0.87,
+      0.84,
+      0.83
+    ],
+    "used_history": false,
+    "profile_applied": false,
+    "has_affinity": false,
+    "has_conflict": false,
+    "elapsed_s": 8.7
+  },
+  {
+    "id": 7,
+    "query": "1/4-20 socket head cap screw",
+    "customer_id": null,
+    "category": "direct",
+    "top_result": "1/4-20 X 1/4\" SOCKET HEAD CAP SCREW ASME B18.2.1 316 SS PLN",
+    "confidences": [
+      0.92,
+      0.89,
+      0.88
+    ],
+    "used_history": false,
+    "profile_applied": false,
+    "has_affinity": false,
+    "has_conflict": false,
+    "elapsed_s": 10.47
+  },
+  {
+    "id": 8,
+    "query": "M16 threaded rod",
+    "customer_id": null,
+    "category": "direct",
+    "top_result": "M16-2.0 X 80MM THREADED ROD STEEL PLAIN",
+    "confidences": [
+      0.82,
+      0.8,
+      0.78
+    ],
+    "used_history": false,
+    "profile_applied": false,
+    "has_affinity": false,
+    "has_conflict": false,
+    "elapsed_s": 9.75
+  },
+  {
+    "id": 9,
+    "query": "#8-32 flat washer",
+    "customer_id": null,
+    "category": "direct",
+    "top_result": "#8-32 FLAT WSHR ASME B18.2.1 BRASS PLAIN",
+    "confidences": [
+      0.88,
+      0.86,
+      0.86
+    ],
+    "used_history": false,
+    "profile_applied": false,
+    "has_affinity": false,
+    "has_conflict": false,
+    "elapsed_s": 9.28
+  },
+  {
+    "id": 10,
+    "query": "5/8-11 hex nut",
+    "customer_id": null,
+    "category": "direct",
+    "top_result": "5/8-11 HEX NUT 18-8 SS BLACK OXIDE",
+    "confidences": [
+      0.88,
+      0.87,
+      0.86
+    ],
+    "used_history": false,
+    "profile_applied": false,
+    "has_affinity": false,
+    "has_conflict": false,
+    "elapsed_s": 8.43
+  },
+  {
+    "id": 11,
+    "query": "SHCS 7/16 x 2-1/2",
+    "customer_id": null,
+    "category": "shorthand",
+    "top_result": "7/16-14 X 4\" SOCKET HEAD CAP SCREW BRASS HDG",
+    "confidences": [
+      0.78,
+      0.72,
+      0.62
+    ],
+    "used_history": false,
+    "profile_applied": false,
+    "has_affinity": false,
+    "has_conflict": false,
+    "elapsed_s": 9.69
+  },
+  {
+    "id": 12,
+    "query": "HHB 3/4-10 x 5/8",
+    "customer_id": null,
+    "category": "shorthand",
+    "top_result": "3/4-10 X 5/8\" TAP BOLT ASME B18.2.1 STEEL ZINC",
+    "confidences": [
+      0.87,
+      0.64,
+      0.58
+    ],
+    "used_history": false,
+    "profile_applied": false,
+    "has_affinity": false,
+    "has_conflict": false,
+    "elapsed_s": 10.63
+  },
+  {
+    "id": 13,
+    "query": "BHCS",
+    "customer_id": null,
+    "category": "shorthand",
+    "top_result": "M8-1.25x20MM BTN SOCKET CAP SCREW 18-8 SS HDG",
+    "confidences": [
+      0.88,
+      0.78,
+      0.35
+    ],
+    "used_history": false,
+    "profile_applied": false,
+    "has_affinity": false,
+    "has_conflict": false,
+    "elapsed_s": 15.61
+  },
+  {
+    "id": 14,
+    "query": "HHCS M8 x 30",
+    "customer_id": null,
+    "category": "shorthand",
+    "top_result": "M8-1.25 X 30MM SOCKET HEAD CAP SCR STEEL BLACK OXIDE",
+    "confidences": [
+      0.92,
+      0.91,
+      0.68
+    ],
+    "used_history": false,
+    "profile_applied": false,
+    "has_affinity": false,
+    "has_conflict": false,
+    "elapsed_s": 9.92
+  },
+  {
+    "id": 15,
+    "query": "pan head machine screw M6",
+    "customer_id": null,
+    "category": "direct",
+    "top_result": "M6-1.0 X 30MM PHILLIPS PAN MACHINE SCREW DIN 912 316 SS MECH ZINC",
+    "confidences": [
+      0.88,
+      0.86,
+      0.85
+    ],
+    "used_history": false,
+    "profile_applied": false,
+    "has_affinity": false,
+    "has_conflict": false,
+    "elapsed_s": 9.7
+  },
+  {
+    "id": 16,
+    "query": "button head cap screw 1/4-20",
+    "customer_id": null,
+    "category": "direct",
+    "top_result": "1/4-20 X 1\" BUTTON SOC CAP SCR DIN 912 BRASS HDG",
+    "confidences": [
+      0.88,
+      0.87,
+      0.86
+    ],
+    "used_history": false,
+    "profile_applied": false,
+    "has_affinity": false,
+    "has_conflict": false,
+    "elapsed_s": 8.96
+  },
+  {
+    "id": 17,
+    "query": "lock washer 5/8",
+    "customer_id": null,
+    "category": "underspecified",
+    "top_result": "5/8-11 LOCK WASHER ALLOY MECH ZINC",
+    "confidences": [
+      0.83,
+      0.81,
+      0.8
+    ],
+    "used_history": false,
+    "profile_applied": false,
+    "has_affinity": false,
+    "has_conflict": false,
+    "elapsed_s": 10.92
+  },
+  {
+    "id": 18,
+    "query": "M10 bolt",
+    "customer_id": null,
+    "category": "underspecified",
+    "top_result": "M10-1.5 X 12MM TAP BOLT ASME B18.2.1 BRASS BLACK OXIDE",
+    "confidences": [
+      0.78,
+      0.78,
+      0.78
+    ],
+    "used_history": false,
+    "profile_applied": false,
+    "has_affinity": false,
+    "has_conflict": false,
+    "elapsed_s": 11.76
+  },
+  {
+    "id": 19,
+    "query": "hex nut",
+    "customer_id": null,
+    "category": "underspecified",
+    "top_result": "M8-1.25 HEX NUT STEEL ZINC",
+    "confidences": [
+      0.38,
+      0.37,
+      0.36
+    ],
+    "used_history": false,
+    "profile_applied": false,
+    "has_affinity": false,
+    "has_conflict": false,
+    "elapsed_s": 10.26
+  },
+  {
+    "id": 20,
+    "query": "washer",
+    "customer_id": null,
+    "category": "underspecified",
+    "top_result": "1/4-20 LOCK WASHER STEEL PLAIN",
+    "confidences": [
+      0.32,
+      0.31,
+      0.3
+    ],
+    "used_history": false,
+    "profile_applied": false,
+    "has_affinity": false,
+    "has_conflict": false,
+    "elapsed_s": 11.4
+  },
+  {
+    "id": 21,
+    "query": "1/4-20 x 3/4 hex zinc",
+    "customer_id": null,
+    "category": "material-specified",
+    "top_result": "1/4-20 X 3/4\" HEX CAP SCREW STEEL ZINC",
+    "confidences": [
+      0.96,
+      0.74,
+      0.72
+    ],
+    "used_history": false,
+    "profile_applied": false,
+    "has_affinity": false,
+    "has_conflict": false,
+    "elapsed_s": 10.19
+  },
+  {
+    "id": 22,
+    "query": "brass hex nut 1/2-13",
+    "customer_id": null,
+    "category": "material-specified",
+    "top_result": "1/2-13 HEX NUT ISO 7380 BRASS ZINC",
+    "confidences": [
+      0.95,
+      0.35,
+      0.32
+    ],
+    "used_history": false,
+    "profile_applied": false,
+    "has_affinity": false,
+    "has_conflict": false,
+    "elapsed_s": 8.87
+  },
+  {
+    "id": 23,
+    "query": "stainless steel M8 flat washer",
+    "customer_id": null,
+    "category": "material-specified",
+    "top_result": "M8-1.25 FLAT WASHER ISO 7380 18-8 SS PLAIN",
+    "confidences": [
+      0.92,
+      0.31,
+      0.29
+    ],
+    "used_history": false,
+    "profile_applied": false,
+    "has_affinity": false,
+    "has_conflict": false,
+    "elapsed_s": 9.18
+  },
+  {
+    "id": 24,
+    "query": "alloy black oxide 5/8 lock washer",
+    "customer_id": null,
+    "category": "material-specified",
+    "top_result": "5/8-11 LOCK WASHER ASTM A307 ALLOY BLACK OXIDE",
+    "confidences": [
+      0.93,
+      0.77,
+      0.65
+    ],
+    "used_history": false,
+    "profile_applied": false,
+    "has_affinity": false,
+    "has_conflict": false,
+    "elapsed_s": 9.26
+  },
+  {
+    "id": 25,
+    "query": "M4 socket head cap screw plain",
+    "customer_id": null,
+    "category": "material-specified",
+    "top_result": "M4-0.7 X 25MM SOCKET HEAD CAP SCREW 316 SS PLAIN",
+    "confidences": [
+      0.82,
+      0.81,
+      0.8
+    ],
+    "used_history": false,
+    "profile_applied": false,
+    "has_affinity": false,
+    "has_conflict": false,
+    "elapsed_s": 9.3
+  },
+  {
+    "id": 26,
+    "query": "3/8-16 hex cap screw steel HDG",
+    "customer_id": null,
+    "category": "material-specified",
+    "top_result": "1/2-13 X 3/4\" HEX CAP SCREW ASME B18.2.1 ALLOY HDG",
+    "confidences": [
+      0.83,
+      0.83,
+      0.79
+    ],
+    "used_history": false,
+    "profile_applied": false,
+    "has_affinity": false,
+    "has_conflict": false,
+    "elapsed_s": 12.97
+  },
+  {
+    "id": 27,
+    "query": "M8 hex nut",
+    "customer_id": "CUST-001",
+    "category": "personalized",
+    "top_result": "M8-1.25 HEX NUT STEEL ZINC",
+    "confidences": [
+      1.0,
+      0.8466,
+      0.78
+    ],
+    "used_history": false,
+    "profile_applied": true,
+    "has_affinity": true,
+    "has_conflict": false,
+    "elapsed_s": 9.8
+  },
+  {
+    "id": 28,
+    "query": "M8 hex nut",
+    "customer_id": "CUST-002",
+    "category": "personalized",
+    "top_result": "M8-1.25 HEX NUT ISO 7380 316 SS ZINC",
+    "confidences": [
+      1.0,
+      0.83,
+      0.81
+    ],
+    "used_history": false,
+    "profile_applied": true,
+    "has_affinity": true,
+    "has_conflict": false,
+    "elapsed_s": 10.27
+  },
+  {
+    "id": 29,
+    "query": "M8 hex nut",
+    "customer_id": "CUST-003",
+    "category": "personalized",
+    "top_result": "M8-1.25 HEX NUT STEEL ZINC",
+    "confidences": [
+      0.85,
+      0.82,
+      0.78
+    ],
+    "used_history": false,
+    "profile_applied": true,
+    "has_affinity": false,
+    "has_conflict": false,
+    "elapsed_s": 9.94
+  },
+  {
+    "id": 30,
+    "query": "M8 hex nut",
+    "customer_id": "CUST-004",
+    "category": "personalized",
+    "top_result": "M8-1.25 HEX NUT STEEL ZINC",
+    "confidences": [
+      0.82,
+      0.8,
+      0.78
+    ],
+    "used_history": false,
+    "profile_applied": true,
+    "has_affinity": false,
+    "has_conflict": false,
+    "elapsed_s": 11.38
+  },
+  {
+    "id": 31,
+    "query": "flat washer M16",
+    "customer_id": "CUST-002",
+    "category": "personalized",
+    "top_result": "m16-2.0 flat washer astm a307 316 ss hdg",
+    "confidences": [
+      1.0,
+      1.0,
+      0.86
+    ],
+    "used_history": false,
+    "profile_applied": true,
+    "has_affinity": true,
+    "has_conflict": false,
+    "elapsed_s": 12.89
+  },
+  {
+    "id": 32,
+    "query": "5/8 lock washer",
+    "customer_id": "CUST-004",
+    "category": "personalized",
+    "top_result": "5/8-11 LOCK WASHER ALLOY MECH ZINC",
+    "confidences": [
+      1.0,
+      1.0,
+      0.84
+    ],
+    "used_history": false,
+    "profile_applied": true,
+    "has_affinity": true,
+    "has_conflict": false,
+    "elapsed_s": 8.39
+  },
+  {
+    "id": 33,
+    "query": "brass stuff, call me",
+    "customer_id": null,
+    "category": "vague",
+    "top_result": "3/4-10 FLAT WASHER BRASS ZINC",
+    "confidences": [
+      0.32,
+      0.31,
+      0.3
+    ],
+    "used_history": false,
+    "profile_applied": false,
+    "has_affinity": false,
+    "has_conflict": false,
+    "elapsed_s": 10.09
+  },
+  {
+    "id": 34,
+    "query": "the same washers as last time",
+    "customer_id": "CUST-001",
+    "category": "history-reference",
+    "top_result": "M8-1.25 FLAT WASHER STEEL YELLOW ZINC",
+    "confidences": [
+      0.88,
+      0.88,
+      0.88
+    ],
+    "used_history": true,
+    "profile_applied": false,
+    "has_affinity": false,
+    "has_conflict": false,
+    "elapsed_s": 0.03
+  }
+]

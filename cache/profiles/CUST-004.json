@@ -1,0 +1,24 @@
+{
+  "customer_id": "CUST-004",
+  "customer_name": "Heavy Machinery Solutions",
+  "industry_inference": "Heavy machinery manufacturing and maintenance",
+  "fingerprint_string": "Exclusively uses alloy steel with black oxide finish across all fasteners, with roughly balanced preference for metric and imperial threading systems.",
+  "material_distribution": {
+    "ALLOY BLACK OXIDE": 1.0
+  },
+  "thread_system_distribution": {
+    "metric": 0.44,
+    "imperial": 0.56
+  },
+  "finish_distribution": {
+    "BLACK OXIDE": 1.0
+  },
+  "notable_patterns": [
+    "100% consistent use of alloy steel with black oxide finish across all 18 orders",
+    "Orders mix of structural fasteners (hex cap screws, nuts) and assembly hardware (lock washers, flat washers)",
+    "Repeat ordering of specific items like 5/8-11 lock washers indicates standardized assembly processes",
+    "Quantity patterns suggest both production runs (high quantities of washers/nuts) and maintenance inventory (smaller quantities of specialty items)"
+  ],
+  "profile_confidence": 0.95,
+  "order_count": 18
+}
