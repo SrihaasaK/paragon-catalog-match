@@ -1,0 +1,72 @@
+[
+  {
+    "id": "tc_01",
+    "query": "M8 hex nut",
+    "customer_id": null,
+    "expected_behavior": "baseline ranking with multiple material variants in top 3",
+    "decision_illustrated": "no personalization without customer context"
+  },
+  {
+    "id": "tc_02",
+    "query": "M8 hex nut",
+    "customer_id": "CUST-002",
+    "expected_behavior": "top result is stainless steel variant (316 SS or 18-8 SS) due to profile affinity",
+    "decision_illustrated": "profile boosts material family when query is silent on material"
+  },
+  {
+    "id": "tc_03",
+    "query": "M8 hex nut",
+    "customer_id": "CUST-001",
+    "expected_behavior": "top result is steel zinc variant, boosted by profile",
+    "decision_illustrated": "same query, different customer, different ranking emphasis"
+  },
+  {
+    "id": "tc_04",
+    "query": "M8 hex nut steel zinc",
+    "customer_id": "CUST-002",
+    "expected_behavior": "top result is steel zinc (NOT SS); conflict flag present noting customer typically orders 18-8 SS",
+    "decision_illustrated": "explicit query specs override profile preferences; conflict surfaced for verification"
+  },
+  {
+    "id": "tc_05",
+    "query": "M8 hex nut",
+    "customer_id": "CUST-005",
+    "expected_behavior": "ranking similar to no-customer baseline; profile_applied is false",
+    "decision_illustrated": "sparse history customers skip personalization gracefully"
+  },
+  {
+    "id": "tc_06",
+    "query": "1/2 inch hex nut",
+    "customer_id": null,
+    "expected_behavior": "top 3 with confidence in 0.50-0.75 range reflecting thread-pitch ambiguity",
+    "decision_illustrated": "underspecified queries surface lower confidence rather than false certainty"
+  },
+  {
+    "id": "tc_07",
+    "query": "the same washers as last time",
+    "customer_id": "CUST-001",
+    "expected_behavior": "returns washers from CUST-001's recent order history via Stage 1.5",
+    "decision_illustrated": "history-reference queries route to special path using customer order data"
+  },
+  {
+    "id": "tc_08",
+    "query": "the same washers as last time",
+    "customer_id": null,
+    "expected_behavior": "falls back to standard pipeline; low confidence since no history context",
+    "decision_illustrated": "history-reference path requires customer context; graceful fallback"
+  },
+  {
+    "id": "tc_09",
+    "query": "SHCS 7/16 x 2-1/2",
+    "customer_id": null,
+    "expected_behavior": "resolves SHCS to socket head cap screw; finds 7/16 x 2-1/2 variants",
+    "decision_illustrated": "industry shorthand handled by LLM reranker, not hardcoded"
+  },
+  {
+    "id": "tc_10",
+    "query": "brass stuff, call me",
+    "customer_id": null,
+    "expected_behavior": "top 3 brass items with very low confidence (<0.40); reasoning notes vagueness",
+    "decision_illustrated": "vague queries surface low confidence rather than hallucinating specificity"
+  }
+]
