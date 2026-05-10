@@ -9,7 +9,7 @@ import numpy as np
 import pandas as pd
 from rank_bm25 import BM25Okapi
 
-from .affinity import apply_affinity
+from .affinity import SPARSE_HISTORY_THRESHOLD, apply_affinity
 from .models import CustomerProfile, MatchResult, RankedMatch
 from .rerank import rerank
 from .retrieval import build_bm25_index, hybrid_retrieve
@@ -155,6 +155,16 @@ class MatchPipeline:
         2. Otherwise: hybrid_retrieve -> rerank -> (optional) apply_affinity
         3. Return top 3 as MatchResult
         """
+        # Guard: empty or whitespace-only queries
+        if not query or not query.strip():
+            return MatchResult(
+                query=query or "",
+                customer_id=customer_id,
+                matches=[],
+                used_history_path=False,
+                profile_applied=False,
+            )
+
         # Stage 1.5: history reference shortcut
         if customer_id and is_history_reference_query(query):
             history_matches = retrieve_from_customer_history(
@@ -187,7 +197,11 @@ class MatchPipeline:
         if customer_id and customer_id in self.profiles:
             profile = self.profiles[customer_id]
             matches = apply_affinity(matches, query, profile)
-            profile_applied = profile.profile_confidence >= 0.5
+            # Must match the skip logic in affinity.py
+            profile_applied = (
+                profile.profile_confidence >= 0.5
+                and profile.order_count >= SPARSE_HISTORY_THRESHOLD
+            )
 
         return MatchResult(
             query=query,
