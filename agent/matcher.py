@@ -84,18 +84,30 @@ def retrieve_from_customer_history(
     # Deduplicate by SKU, keep most recent
     deduped = filtered.drop_duplicates(subset="sku", keep="first")
 
+    # Confidence decays with recency rank — most recent = highest
+    rank_confidences = [0.88, 0.82, 0.76]
+    product_label = product_type or "item"
+
     matches = []
-    for _, row in deduped.head(3).iterrows():
+    for i, (_, row) in enumerate(deduped.head(3).iterrows()):
+        conf = rank_confidences[i] if i < len(rank_confidences) else 0.70
+        if i == 0:
+            reasoning = (
+                f"Most recent {product_label} order from {customer_id} "
+                f"({row['order_date']}, qty {row['quantity']})"
+            )
+        else:
+            reasoning = (
+                f"#{i + 1} most recent {product_label} order from {customer_id} "
+                f"({row['order_date']}, qty {row['quantity']})"
+            )
         matches.append(
             RankedMatch(
                 catalog_id=row.get("catalog_id", row["sku"]),
                 sku=row["sku"],
                 catalog_description=row["catalog_description"],
-                confidence=0.88,
-                reasoning=(
-                    f"From {customer_id}'s order history "
-                    f"({row['order_date']}, qty {row['quantity']})"
-                ),
+                confidence=conf,
+                reasoning=reasoning,
             )
         )
 
