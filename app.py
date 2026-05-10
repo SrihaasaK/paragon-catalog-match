@@ -479,17 +479,7 @@ def main():
         unsafe_allow_html=True,
     )
 
-    # --- Input controls ---
-    col1, col2 = st.columns([3, 1])
-
-    with col1:
-        query = st.text_input(
-            "Search query",
-            value="M8 hex nut",
-            placeholder="e.g., M8 hex nut, SHCS 7/16 x 2-1/2, the same washers as last time",
-            label_visibility="collapsed",
-        )
-
+    # --- Input controls (wrapped in form to suppress "Press Enter") ---
     customer_options = {
         "No customer (baseline)": None,
         "CUST-001 \u2014 Midwest Industrial Supply": "CUST-001",
@@ -499,12 +489,24 @@ def main():
         "CUST-005 \u2014 Summit General Maintenance": "CUST-005",
     }
 
-    with col2:
-        customer_label = st.selectbox(
-            "Customer",
-            options=list(customer_options.keys()),
-            index=2,  # Default to CUST-002
-            label_visibility="collapsed",
+    with st.form("search_form"):
+        col1, col2 = st.columns([3, 1])
+        with col1:
+            query = st.text_input(
+                "Search query",
+                value="M8 hex nut",
+                placeholder="e.g., M8 hex nut, SHCS 7/16 x 2-1/2, the same washers as last time",
+                label_visibility="collapsed",
+            )
+        with col2:
+            customer_label = st.selectbox(
+                "Customer",
+                options=list(customer_options.keys()),
+                index=2,  # Default to CUST-002
+                label_visibility="collapsed",
+            )
+        search_clicked = st.form_submit_button(
+            "Search catalog", type="primary", use_container_width=True
         )
     customer_id = customer_options[customer_label]
 
@@ -556,9 +558,7 @@ def main():
                 f"&nbsp;&middot;&nbsp; **Orders:** {profile.order_count}",
             )
 
-    # --- Search ---
-    search_clicked = st.button("Search catalog", type="primary", use_container_width=True)
-
+    # --- Search results ---
     if search_clicked and query.strip():
         with st.spinner("Matching..."):
             result = pipeline.match(query.strip(), customer_id)
@@ -568,14 +568,6 @@ def main():
 
         for i, match in enumerate(result.matches):
             confidence_html = render_confidence_badge(match.confidence)
-
-            affinity_html = ""
-            if match.affinity_note:
-                affinity_html = f'<div class="affinity-note">{match.affinity_note}</div>'
-
-            conflict_html = ""
-            if match.conflict_flag:
-                conflict_html = f'<div class="conflict-flag">{match.conflict_flag}</div>'
 
             st.markdown(
                 f"""
@@ -589,12 +581,16 @@ def main():
                     </div>
                     <div class="result-description">{match.catalog_description}</div>
                     <div class="result-reasoning">{match.reasoning}</div>
-                    {affinity_html}
-                    {conflict_html}
                 </div>
                 """,
                 unsafe_allow_html=True,
             )
+
+            if match.affinity_note:
+                st.success(match.affinity_note)
+
+            if match.conflict_flag:
+                st.warning(match.conflict_flag)
 
         # --- Pipeline trace ---
         if result.used_history_path:
