@@ -47,7 +47,7 @@ def main():
     st.title("Paragon Catalog Match")
     st.caption(
         "Free-text catalog matching with customer-aware ranking "
-        "| [GitHub](https://github.com/destroyer123456-dev/paragon-catalog-match)"
+        "| [GitHub](https://github.com/SrihaasaK/paragon-catalog-match)"
     )
 
     pipeline = load_pipeline()

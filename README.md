@@ -124,7 +124,7 @@ These are decision illustrators, not pass/fail benchmarks. Each one demonstrates
 ## Run Locally
 
 ```bash
-git clone https://github.com/destroyer123456-dev/paragon-catalog-match.git
+git clone https://github.com/SrihaasaK/paragon-catalog-match.git
 cd paragon-catalog-match
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
