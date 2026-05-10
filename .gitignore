@@ -1,0 +1,10 @@
+.env
+cache/
+__pycache__/
+*.pyc
+.venv/
+.streamlit/secrets.toml
+evals/latest_report.json
+.omc/
+ruvector.db
+.DS_Store

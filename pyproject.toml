@@ -1,0 +1,8 @@
+[project]
+name = "paragon-catalog-match"
+version = "0.1.0"
+description = "Free-text to catalog matching with customer-aware ranking for industrial fasteners"
+requires-python = ">=3.11"
+
+[project.scripts]
+eval = "evals.eval:main"
