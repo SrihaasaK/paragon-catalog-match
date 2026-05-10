@@ -235,7 +235,7 @@ def apply_affinity(
                         f"customer prefers {cand_thread} threading ({thread_pref:.0%})"
                     )
 
-        match.confidence = min(match.confidence * boost, 1.0)
+        match.confidence = min(match.confidence * boost, 0.95)
         if boost_reasons:
             match.affinity_note = "Boosted: " + "; ".join(boost_reasons)
 

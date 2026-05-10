@@ -1,5 +1,7 @@
 # Paragon Catalog-Match
 
+[Live Demo](https://paragon-catalog-match.streamlit.app) · [GitHub](https://github.com/SrihaasaK/paragon-catalog-match)
+
 A free-text catalog matching system for industrial fastener distribution. Hybrid retrieval (embeddings + BM25) narrows 1,000 SKUs to 15 candidates; Claude Sonnet reranks to top 3 with calibrated confidence scores. Customer order history personalizes rankings when a customer is selected, with explicit handling for sparse-history customers and history-reference queries ("the same washers as last time").
 
 ## Architecture
@@ -23,7 +25,7 @@ Stage 2: LLM Rerank
 Stage 3: Customer Affinity (optional)
   ├── Skip if no customer selected, or sparse history (< 8 orders, confidence < 0.5)
   ├── Only boost on features the query did NOT specify
-  ├── Multiplicative: confidence × (1 + 0.4 × preference), clamped to [0, 1]
+  ├── Multiplicative: confidence × (1 + 0.4 × preference), clamped to [0, 0.95]
   ├── Surface affinity_note explaining the boost
   └── Flag conflicts when query contradicts customer profile
   |
@@ -95,8 +97,8 @@ These are decision illustrators, not pass/fail benchmarks. Each one demonstrates
 | ID | Query | Customer | Expected | Observed | Decision Illustrated |
 |---|---|---|---|---|---|
 | tc_01 | M8 hex nut | None | Baseline: multiple materials in top 3 | 0.85 / 0.82 / 0.78 — steel zinc, steel mech zinc, 316 SS | No personalization without customer context |
-| tc_02 | M8 hex nut | CUST-002 (pharma) | SS variant boosted to #1 | 316 SS → #1 at 0.97, affinity note present | Profile boosts material family when query is silent |
-| tc_03 | M8 hex nut | CUST-001 (industrial) | Steel zinc boosted to #1 | Steel zinc → #1 at 1.00, affinity note present | Same query, different customer, different top result |
+| tc_02 | M8 hex nut | CUST-002 (pharma) | SS variant boosted to #1 | 316 SS → #1 at 0.95, affinity note present | Profile boosts material family when query is silent |
+| tc_03 | M8 hex nut | CUST-001 (industrial) | Steel zinc boosted to #1 | Steel zinc → #1 at 0.95, affinity note present | Same query, different customer, different top result |
 | tc_04 | M8 hex nut steel zinc | CUST-002 | Steel zinc top; conflict flag | Steel zinc #1, conflict flag fires | Explicit query overrides profile; conflict surfaced |
 | tc_05 | M8 hex nut | CUST-005 (sparse) | Same as baseline | 0.85 / 0.83 / 0.76, profile_applied=false | Sparse history → skip personalization |
 | tc_06 | 1/2 inch hex nut | None | Confidence 0.50-0.75 | 0.67 / 0.65 / 0.63 | Underspecified queries → lower confidence |
@@ -111,7 +113,7 @@ These are decision illustrators, not pass/fail benchmarks. Each one demonstrates
 - **Profile generation is one-shot.** Profiles don't update when new orders arrive without deleting the cached JSON and regenerating. In production, you'd trigger regeneration on new order events.
 - **RRF k=60 is a default.** The Reciprocal Rank Fusion constant is the standard value from the original paper. It's not tuned against this specific catalog because the default works well and tuning without a labeled eval set would be overfitting to anecdotes.
 - **Affinity only reorders the reranker's top 5.** If the customer's preferred material variant doesn't appear in the reranker's output (e.g., no alloy black oxide M8 hex nut in top 5), affinity can't promote it. Expanding to top 10 from the reranker would help but adds LLM cost.
-- **Confidence clamping at 1.0.** Strong affinity boosts can push confidence to the 1.0 cap, which slightly misrepresents certainty. A calibration pass post-boost would be more principled.
+- **Confidence ceiling at 0.95.** Affinity-boosted matches are capped at 0.95 rather than 1.0 because affinity is probabilistic — even a 100%-aligned customer profile shouldn't claim absolute certainty when the query has unspecified attributes. A post-boost calibration pass would be more principled but the hard cap is a reasonable approximation.
 
 ## What I'd Build Next (Given Another Week)
 
@@ -139,3 +141,7 @@ streamlit run app.py
 # Run eval suite
 python3 -m evals.eval
 ```
+
+---
+
+*Built as a take-home submission for [Paragon](https://runparagon.com) (YC W25).*
