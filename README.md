@@ -45,7 +45,7 @@ Two failure modes need two tools. "M8 hex nut" requires literal token match on "
 
 - **Cost and speed.** Sonnet is roughly 5x cheaper than Opus and significantly faster. The reranking task is well-structured: 15 candidates in, top 5 out with reasoning. This is squarely within Sonnet's capability range.
 - **Structured output reliability.** Anthropic's tool-use feature provides deterministic structured output by forcing the model to call a tool whose schema matches the desired output format. This eliminates JSON parsing failures.
-- **Reasoning quality matters here.** The per-result reasoning text is shown to users and to Kasyap. Sonnet produces substantive reasoning that explains *why* a candidate matches or doesn't, not just "good match."
+- **Reasoning quality matters here.** Sonnet produces substantive reasoning that explains *why* a candidate matches or doesn't, not just "good match."
 - **Considered Opus fallback.** Didn't implement it because Sonnet handled all test queries cleanly — including edge cases like "brass stuff, call me" (appropriately low confidence) and SHCS shorthand resolution. Adding a fallback for its own sake adds complexity without observed benefit.
 
 ### Why pre-computed customer profiles instead of on-the-fly LLM analysis?
