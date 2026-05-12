@@ -1,6 +1,6 @@
 # Paragon Catalog-Match
 
-[Live Demo](https://paragon-catalog-match.streamlit.app) · [GitHub](https://github.com/SrihaasaK/paragon-catalog-match)
+[Live Demo](https://paragon-catalog-match-gqhiqkv3xc8pgt99x9l3ue.streamlit.app/) · [GitHub](https://github.com/SrihaasaK/paragon-catalog-match)
 
 A free-text catalog matching system for industrial fastener distribution. Hybrid retrieval (embeddings + BM25) narrows 1,000 SKUs to 15 candidates; Claude Sonnet reranks to top 3 with calibrated confidence scores. Customer order history personalizes rankings when a customer is selected, with explicit handling for sparse-history customers and history-reference queries ("the same washers as last time").
 
