@@ -97,15 +97,15 @@ These are decision illustrators, not pass/fail benchmarks. Each one demonstrates
 | ID | Query | Customer | Expected | Observed | Decision Illustrated |
 |---|---|---|---|---|---|
 | tc_01 | M8 hex nut | None | Baseline: multiple materials in top 3 | 0.85 / 0.82 / 0.78 — steel zinc, steel mech zinc, 316 SS | No personalization without customer context |
-| tc_02 | M8 hex nut | CUST-002 (pharma) | SS variant boosted to #1 | 316 SS → #1 at 0.95, affinity note present | Profile boosts material family when query is silent |
+| tc_02 | M8 hex nut | CUST-002 (pharma) | SS variant boosted to #1 | 316 SS + 18-8 SS → #1/#2 at 0.95, affinity note present | Profile boosts material family when query is silent |
 | tc_03 | M8 hex nut | CUST-001 (industrial) | Steel zinc boosted to #1 | Steel zinc → #1 at 0.95, affinity note present | Same query, different customer, different top result |
-| tc_04 | M8 hex nut steel zinc | CUST-002 | Steel zinc top; conflict flag | Steel zinc #1, conflict flag fires | Explicit query overrides profile; conflict surfaced |
-| tc_05 | M8 hex nut | CUST-005 (sparse) | Same as baseline | 0.85 / 0.83 / 0.76, profile_applied=false | Sparse history → skip personalization |
+| tc_04 | M8 hex nut steel zinc | CUST-002 | Steel zinc top; conflict flag | Steel zinc #1 at 0.85, conflict flag fires | Explicit query overrides profile; conflict surfaced |
+| tc_05 | M8 hex nut | CUST-005 (sparse) | Same as baseline | 0.85 / 0.82 / 0.78, profile_applied=false | Sparse history → skip personalization |
 | tc_06 | 1/2 inch hex nut | None | Confidence 0.50-0.75 | 0.67 / 0.65 / 0.63 | Underspecified queries → lower confidence |
-| tc_07 | the same washers as last time | CUST-001 | Stage 1.5: returns order history | 3 washers from history, 0.88 each | History-reference queries route to special path |
-| tc_08 | the same washers as last time | None | Fallback, low confidence | 0.35 / 0.32 / 0.30 | History path requires customer; graceful fallback |
-| tc_09 | SHCS 7/16 x 2-1/2 | None | Resolves SHCS shorthand | Socket head cap screws found, 0.83 / 0.81 / 0.64 | Industry shorthand handled by LLM reranker |
-| tc_10 | brass stuff, call me | None | Very low confidence (<0.40) | 0.28 / 0.27 / 0.26 — brass items, vague reasoning | Vague queries → low confidence, not hallucinated specificity |
+| tc_07 | the same washers as last time | CUST-001 | Stage 1.5: returns order history | 3 washers from history, 0.92 / 0.86 / 0.78 | History-reference queries route to special path |
+| tc_08 | the same washers as last time | None | Fallback, low confidence | 0.25 / 0.24 / 0.23 | History path requires customer; graceful fallback |
+| tc_09 | SHCS 7/16 x 2-1/2 | None | Resolves SHCS shorthand | Socket head + hex cap screws found, 0.78 / 0.74 / 0.68 | Industry shorthand handled by LLM reranker |
+| tc_10 | brass stuff, call me | None | Very low confidence (<0.40) | 0.32 / 0.31 / 0.30 — brass items, vague reasoning | Vague queries → low confidence, not hallucinated specificity |
 
 ## Known Limitations
 
