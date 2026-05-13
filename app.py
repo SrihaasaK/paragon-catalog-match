@@ -273,29 +273,6 @@ header {visibility: hidden;}
     color: #991B1B;
 }
 
-/* Affinity note */
-.affinity-note {
-    background: #F0FDF4;
-    border: 1px solid #BBF7D0;
-    border-radius: 8px;
-    padding: 0.5rem 0.75rem;
-    font-size: 0.8rem;
-    color: #166534;
-    margin-top: 0.5rem;
-}
-
-/* Conflict flag */
-.conflict-flag {
-    background: #FFFBEB;
-    border: 1px solid #FDE68A;
-    border-radius: 8px;
-    padding: 0.5rem 0.75rem;
-    font-size: 0.8rem;
-    color: #92400E;
-    margin-top: 0.5rem;
-    line-height: 1.5;
-}
-
 /* Pipeline trace */
 .trace-card {
     background: #F8FAFC;
