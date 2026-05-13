@@ -457,15 +457,12 @@ def main():
         unsafe_allow_html=True,
     )
 
-    # --- Input controls ---
-    customer_options = {
-        "No customer (baseline)": None,
-        "CUST-001 \u2014 Midwest Industrial Supply": "CUST-001",
-        "CUST-002 \u2014 CleanRoom Pharma MFG": "CUST-002",
-        "CUST-003 \u2014 Marine Electrical Corp": "CUST-003",
-        "CUST-004 \u2014 Heavy Machinery Solutions": "CUST-004",
-        "CUST-005 \u2014 Summit General Maintenance": "CUST-005",
-    }
+    # --- Input controls (customer list built from order history) ---
+    customer_options: dict[str, str | None] = {"No customer (baseline)": None}
+    customer_ids = pipeline.history[["customer_id", "customer_name"]].drop_duplicates()
+    for _, row in customer_ids.sort_values("customer_id").iterrows():
+        label = f"{row['customer_id']} \u2014 {row['customer_name']}"
+        customer_options[label] = row["customer_id"]
 
     # Customer dropdown outside form for reactive profile updates
     col_q, col_c = st.columns([3, 1])
