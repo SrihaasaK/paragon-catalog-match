@@ -147,6 +147,7 @@ Rank the top 5 most likely catalog matches for this query. Use the submit_ranked
     response = client.messages.create(
         model=MODEL,
         max_tokens=1024,
+        temperature=0.0,
         system=RERANKER_SYSTEM,
         tools=[RERANKER_TOOL],
         tool_choice={"type": "tool", "name": "submit_ranked_matches"},
