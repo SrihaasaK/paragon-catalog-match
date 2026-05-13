@@ -247,8 +247,11 @@ def apply_affinity(
         if boost_reasons:
             match.affinity_note = "Boosted: " + "; ".join(boost_reasons)
 
-    # Conflict detection: query explicitly specifies a material the customer rarely uses
-    if query_specs.get("material") is not None:
+    # Re-sort by adjusted confidence
+    matches = sorted(matches, key=lambda m: -m.confidence)
+
+    # Conflict detection on the NEW top result, after re-sort
+    if matches and query_specs.get("material") is not None:
         top = matches[0]
         top_specs = extract_specs_from_description(top.catalog_description)
         top_key = _canonicalize_material_finish(top_specs)
@@ -262,4 +265,4 @@ def apply_affinity(
                 f"This query specifies {top_key}. Verify intent."
             )
 
-    return sorted(matches, key=lambda m: -m.confidence)
+    return matches

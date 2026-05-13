@@ -45,17 +45,20 @@ def get_or_compute_catalog_embeddings(
     """
     hash_path = cache_path.with_suffix(".hash")
 
-    current_hash = _csv_hash(catalog_path)
+    # Load and filter catalog first — hash is based on filtered content
+    # so cache invalidates when active SKUs change
+    df = pd.read_csv(catalog_path)
+    df = df[df["active"] == "Y"].reset_index(drop=True)
+    descriptions = df["catalog_description"].tolist()
+
+    current_hash = hashlib.md5("\n".join(descriptions).encode()).hexdigest()
     if cache_path.exists() and hash_path.exists():
         cached_hash = hash_path.read_text().strip()
         if cached_hash == current_hash:
             logger.info("Loading cached embeddings from %s", cache_path)
             return np.load(cache_path)
 
-    logger.info("Computing embeddings for %s", catalog_path)
-    df = pd.read_csv(catalog_path)
-    df = df[df["active"] == "Y"].reset_index(drop=True)
-    descriptions = df["catalog_description"].tolist()
+    logger.info("Computing embeddings for %d active descriptions", len(descriptions))
 
     all_embeddings = []
     for i in range(0, len(descriptions), BATCH_SIZE):
