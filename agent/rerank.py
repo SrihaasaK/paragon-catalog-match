@@ -85,7 +85,7 @@ Example 5:
 
 RERANKER_TOOL = {
     "name": "submit_ranked_matches",
-    "description": "Submit the top 3 catalog matches ranked by confidence.",
+    "description": "Submit the top 5 catalog matches ranked by confidence.",
     "input_schema": {
         "type": "object",
         "properties": {
