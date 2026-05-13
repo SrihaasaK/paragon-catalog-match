@@ -71,10 +71,12 @@ def extract_query_specs(query: str) -> dict[str, Optional[str]]:
     for pattern, canonical in _FINISH_PATTERNS.items():
         if pattern in q:
             specs["finish"] = canonical
-            # If "zinc" matched as both material indicator and finish,
-            # only treat as finish if no other material was found
+            # If "zinc" matched as finish and no material was explicitly set,
+            # default to steel — unless the query mentions a non-steel material
             if pattern == "zinc" and specs["material"] is None:
-                specs["material"] = "STEEL"  # zinc implies steel unless stated otherwise
+                _NON_STEEL = ["brass", "stainless", "ss", "316", "18-8", "alloy", "aluminum", "copper", "bronze"]
+                if not any(re.search(rf"\b{re.escape(m)}\b", q) for m in _NON_STEEL):
+                    specs["material"] = "STEEL"
             break
 
     return specs
