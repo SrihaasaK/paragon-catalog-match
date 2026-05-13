@@ -384,6 +384,7 @@ div[data-testid="stSelectbox"] > div > div {
 def load_pipeline() -> MatchPipeline:
     """Load all indexes and profiles once, cached across reruns."""
     catalog = pd.read_csv(DATA_DIR / "catalog.csv")
+    catalog = catalog[catalog["active"] == "Y"].reset_index(drop=True)
     embeddings = get_or_compute_catalog_embeddings(
         DATA_DIR / "catalog.csv",
         CACHE_DIR / "embeddings.npy",

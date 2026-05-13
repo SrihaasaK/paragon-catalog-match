@@ -54,6 +54,7 @@ def get_or_compute_catalog_embeddings(
 
     logger.info("Computing embeddings for %s", catalog_path)
     df = pd.read_csv(catalog_path)
+    df = df[df["active"] == "Y"].reset_index(drop=True)
     descriptions = df["catalog_description"].tolist()
 
     all_embeddings = []
