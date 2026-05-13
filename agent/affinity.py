@@ -14,12 +14,12 @@ SPARSE_HISTORY_THRESHOLD = 8
 # --- Spec extraction (regex/keyword, NO LLM) ---
 
 _MATERIAL_PATTERNS = {
-    "brass": "BRASS",
-    "steel": "STEEL",
     "stainless": "18-8 SS",
     "18-8": "18-8 SS",
     "ss": "18-8 SS",
+    "brass": "BRASS",
     "alloy": "ALLOY",
+    "steel": "STEEL",
 }
 
 _FINISH_PATTERNS = {
@@ -45,9 +45,15 @@ def extract_query_specs(query: str) -> dict[str, Optional[str]]:
         "finish": None,
     }
 
-    # Material detection
+    # Material detection — short patterns (<=3 chars) use word boundaries
+    # to avoid false positives (e.g., "pressure" matching "ss")
+    _SHORT_PATTERNS = {"ss", "hdg"}
     for pattern, canonical in _MATERIAL_PATTERNS.items():
-        if pattern in q:
+        if pattern in _SHORT_PATTERNS:
+            if re.search(rf"\b{re.escape(pattern)}\b", q):
+                specs["material"] = canonical
+                break
+        elif pattern in q:
             specs["material"] = canonical
             break
 
